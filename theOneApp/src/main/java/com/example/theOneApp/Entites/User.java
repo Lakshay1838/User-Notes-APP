@@ -18,6 +18,7 @@ public class User {
 
     @Id
     private ObjectId id;
+
     @NonNull
     private String username;
     @NonNull
@@ -28,7 +29,7 @@ public class User {
 
     @DBRef
     private List<Note> notesList = new ArrayList<>();
-
+    private List<String> roles;
 
     public ObjectId getId() {
         return id;
