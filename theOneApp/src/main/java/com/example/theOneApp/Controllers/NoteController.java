@@ -15,10 +15,10 @@ public class NoteController {
     @Autowired
     private NoteService noteService;
 
-    @GetMapping("/all")
-    public List<Note> getAll(){
-        return noteService.getAll();
-    }
+//    @GetMapping("/all")
+//    public List<Note> getAll(){
+//        return noteService.getAll();
+//    }
 //     --NOTE - use {id} in path and @PathVariable String id in parameter then convert to ObjectId(); {{{{RULE}}}}
 //    @GetMapping("/{id}")
 //    public Note getById(@PathVariable String id){

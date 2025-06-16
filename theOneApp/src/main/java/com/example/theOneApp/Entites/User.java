@@ -24,12 +24,13 @@ public class User {
     @NonNull
     private String email;
     @NonNull
-    private String Password;
+    private String password;
     private LocalDateTime lastUpdated;
 
     @DBRef
     private List<Note> notesList = new ArrayList<>();
-    private List<String> roles;
+    private List<String> roles = new ArrayList<>();
+
     public ObjectId getId() {
         return id;
     }
@@ -55,11 +56,11 @@ public class User {
     }
 
     public @NonNull String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(@NonNull String password) {
-        Password = password;
+        this.password = password;
     }
 
     public LocalDateTime getLastUpdated() {
