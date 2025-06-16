@@ -30,7 +30,6 @@ public class User {
     @DBRef
     private List<Note> notesList = new ArrayList<>();
     private List<String> roles;
-
     public ObjectId getId() {
         return id;
     }
@@ -77,5 +76,13 @@ public class User {
 
     public void setNotesList(List<Note> notesList) {
         this.notesList = notesList;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

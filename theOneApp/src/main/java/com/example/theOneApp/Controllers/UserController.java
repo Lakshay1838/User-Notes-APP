@@ -25,10 +25,10 @@ public class UserController {
     public User create(@RequestBody User user){
         return userService.create(user);
     }
-//    @GetMapping("/all")
-//    public List<User> getAll(){
-//        return userService.getAll();
-//    }
+    @GetMapping("/all")
+    public List<User> getAll(){
+        return userService.getAll();
+    }
     @GetMapping("/{id}")
     public User getById(@PathVariable String id){
         return userService.getById(id);
