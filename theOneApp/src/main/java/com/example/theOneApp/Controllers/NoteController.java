@@ -3,6 +3,8 @@ package com.example.theOneApp.Controllers;
 import com.example.theOneApp.Entites.Note;
 import com.example.theOneApp.Services.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/noteController")
 public class NoteController {
+
 
     @Autowired
     private NoteService noteService;
@@ -29,8 +32,11 @@ public class NoteController {
 //    public Note create(@RequestBody Note note){
 //        return noteService.create(note);
 //    }
-    @PostMapping("/{email}")
-    public Note createNoteForUser(@PathVariable String email,@RequestBody Note note){
+    @PostMapping("/createNote")
+    public Note createNoteForUser(@RequestBody Note note){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+
         return noteService.createForUser(email,note);
     }
 

@@ -26,7 +26,7 @@ public class SecurityConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/hello").permitAll() // better to use /** if controller has multiple endpoints
+                        .requestMatchers("/public/**").permitAll() // better to use /** if controller has multiple endpoints
                         .anyRequest().authenticated()
                 )
                 .httpBasic()

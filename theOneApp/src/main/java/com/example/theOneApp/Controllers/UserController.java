@@ -4,6 +4,8 @@ import com.example.theOneApp.Entites.User;
 import com.example.theOneApp.Services.NoteService;
 import com.example.theOneApp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -21,17 +23,18 @@ public class UserController {
 
 
 
-    @PostMapping
-    public User create(@RequestBody User user){
-        return userService.create(user);
-    }
+//    @PostMapping
+//    public User create(@RequestBody User user){
+//        return userService.create(user);
+//    }
     @GetMapping("/all")
     public List<User> getAll(){
         return userService.getAll();
     }
-    @GetMapping("/{id}")
-    public User getById(@PathVariable String id){
-        return userService.getById(id);
+    @GetMapping("/")
+    public User getByEmail(){
+        String email = userService.LoggedInUserEmail();
+        return userService.findByEmail(email);
     }
     @PutMapping("/{id}")
     public User update(@PathVariable String id,@RequestBody User user){
